@@ -1,21 +1,21 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _fixedPointValue(0)
+Fixed::Fixed() : _value(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const int value) : _fixedPointValue(value << _fractionalBits)
+Fixed::Fixed(const int value) : _value(value << _bits)
 {
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float value) : _fixedPointValue(roundf(value * (1 << _fractionalBits)))
+Fixed::Fixed(const float value) : _value(static_cast<int>(roundf(value * (1 << _bits))))
 {
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& other) : _fixedPointValue(other._fixedPointValue)
+Fixed::Fixed(const Fixed& other) : _value(other._value)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
@@ -24,7 +24,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
-		this->_fixedPointValue = other._fixedPointValue;
+		this->_value = other._value;
 	return *this;
 }
 
@@ -35,22 +35,22 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits(void) const
 {
-	return this->_fixedPointValue;
+	return this->_value;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->_fixedPointValue = raw;
+	this->_value = raw;
 }
 
 float Fixed::toFloat(void) const
 {
-	return (float)this->_fixedPointValue / (1 << _fractionalBits);
+	return static_cast<float>(this->_value) / (1 << _bits);
 }
 
 int Fixed::toInt(void) const
 {
-	return this->_fixedPointValue >> _fractionalBits;
+	return this->_value >> _bits;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)

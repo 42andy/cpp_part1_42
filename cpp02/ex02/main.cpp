@@ -19,5 +19,11 @@ int main (void)
 	std::cout << "\nTesting min/max functions :" << std::endl;
 	std::cout << "Fixed::max(a, b) = " << Fixed::max(a, b) << " (should be b = " << b << ")" << std::endl;
 	std::cout << "Fixed::min(a, b) = " << Fixed::min(a, b) << " (should be a = " << a << ")" << std::endl;
+
+	std::cout << "\nTesting division by zero protection :" << std::endl;
+	Fixed zero(0);
+	Fixed ten(10);
+	std::cout << "ten = " << ten << ", zero = " << zero << std::endl;
+	std::cout << "ten / zero = " << (ten / zero) << " (should show error message)" << std::endl;
 	return 0;
 }
