@@ -10,7 +10,8 @@ Fixed::Fixed(const int value) : _value(value << _bits)
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float value) : _value(static_cast<int>(roundf(value * (1 << _bits))))
+Fixed::Fixed(const float value)
+	: _value(static_cast<int>(roundf(value * (1 << _bits))))
 {
 	std::cout << "Float constructor called" << std::endl;
 }
@@ -55,6 +56,7 @@ int Fixed::toInt(void) const
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
-	out << fixed.toFloat();
+	float value = fixed.toFloat();
+	out << value;
 	return out;
 }

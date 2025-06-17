@@ -25,5 +25,6 @@ int main (void)
 	Fixed ten(10);
 	std::cout << "ten = " << ten << ", zero = " << zero << std::endl;
 	std::cout << "ten / zero = " << (ten / zero) << " (should show error message)" << std::endl;
+
 	return 0;
 }

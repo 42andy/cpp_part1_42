@@ -12,6 +12,7 @@ class Fixed
 		static const int _bits = 8;	// Nombre de bits pour la partie fractionnaire
 
 	public :
+	
 		Fixed();
 		Fixed(const int value);
 		Fixed(const float value);
