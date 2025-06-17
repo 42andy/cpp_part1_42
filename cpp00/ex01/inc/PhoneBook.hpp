@@ -5,19 +5,19 @@
 
 class PhoneBook
 {
-	private:
+	private :
 
-		static const int	MAX_CONTACTS = 8;
-		Contact	contacts[MAX_CONTACTS];
-		int		contactCount;
+		static const int MAX_CONTACTS = 8;
+		Contact contacts[MAX_CONTACTS];
+		int contactCount;
 
-	public:
+	public :
 
 		PhoneBook();
 
-		void	addContact(const Contact& newContact);
-		bool	displayContacts() const;
-		bool	displayContactDetails(int index) const;
+		void addContact(const Contact& newContact);
+		bool displayContacts() const;
+		bool displayContactDetails(int index) const;
 
 };
 

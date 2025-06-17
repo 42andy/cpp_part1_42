@@ -53,7 +53,7 @@ static Contact createContact()
 	return newContact;
 }
 
-int	main()
+int main()
 {
 	PhoneBook	phoneBook;
 	std::string	command;

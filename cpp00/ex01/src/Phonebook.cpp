@@ -5,13 +5,13 @@
 
 PhoneBook::PhoneBook() : contactCount(0) {}
 
-void	PhoneBook::addContact(const Contact& newContact)
+void PhoneBook::addContact(const Contact& newContact)
 {
 	contacts[contactCount % MAX_CONTACTS] = newContact;
 	contactCount++;
 }
 
-bool	PhoneBook::displayContacts() const
+bool PhoneBook::displayContacts() const
 {
 	if (contactCount == 0)
 	{
