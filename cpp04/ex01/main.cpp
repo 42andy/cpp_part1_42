@@ -4,12 +4,12 @@
 
 int main()
 {
-	std::cout << "--- Test basic: creation et destruction ---" << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << std::endl << "Destruction via pointeurs Animal* (destructeurs virtuels):" << std::endl;
-	delete j;
-	delete i;
+	std::cout << "Creation et destruction :" << std::endl;
+	const Animal* dog = new Dog();
+	const Animal* cat = new Cat();
+	std::cout << std::endl << "Ordre de destruction (brain->dog/cat->animal) :" << std::endl;
+	delete dog;
+	delete cat;
 
 	std::cout << "\nTableau mixte d'animaux :" << std::endl;
 	Animal* gang[4];
@@ -33,29 +33,29 @@ int main()
 	std::cout << "\nCopie profonde :" << std::endl;
 	std::cout << "Creation du premier chien :" << std::endl;
 	Dog dog1;
-	dog1.getBrain()->_ideas[0] = "Chase the cat";
-	dog1.getBrain()->_ideas[1] = "Bark at mailman";
-	std::cout << "Dog1 idea 0: " << dog1.getBrain()->_ideas[0] << std::endl;
-	std::cout << "Dog1 idea 1: " << dog1.getBrain()->_ideas[1] << std::endl;
+	dog1.getBrain()->_ideas[0] = "Mange";
+	dog1.getBrain()->_ideas[1] = "Joue";
+	std::cout << "Dog1 idea 0 : " << dog1.getBrain()->_ideas[0] << std::endl;
+	std::cout << "Dog1 idea 1 : " << dog1.getBrain()->_ideas[1] << std::endl;
 	
-	std::cout << std::endl << "Creation du deuxieme chien par copie:" << std::endl;
-	Dog dog2 = dog1; // Constructeur de copie
-	std::cout << "Apres copie - Dog2 ideas[0]: " << dog2.getBrain()->_ideas[0] << std::endl;
-	std::cout << "Apres copie - Dog2 ideas[1]: " << dog2.getBrain()->_ideas[1] << std::endl;
+	std::cout << "\nCreation du deuxieme chien par copie :" << std::endl;
+	Dog dog2 = dog1;
+	std::cout << "Apres copie -> Dog2 idea 0 : " << dog2.getBrain()->_ideas[0] << std::endl;
+	std::cout << "Apres copie -> Dog2 idea 1 : " << dog2.getBrain()->_ideas[1] << std::endl;
 	
-	std::cout << std::endl << "Modification des idees du deuxieme chien:" << std::endl;
-	dog2.getBrain()->_ideas[0] = "Play fetch";
-	dog2.getBrain()->_ideas[1] = "Sleep on couch";
+	std::cout << std::endl << "Modification des idees du deuxieme chien :" << std::endl;
+	dog2.getBrain()->_ideas[0] = "Aboie";
+	dog2.getBrain()->_ideas[1] = "Attaque";
 	
-	std::cout << std::endl << "Verification de l'independance (copie profonde):" << std::endl;
-	std::cout << "Dog1 ideas[0]: " << dog1.getBrain()->_ideas[0] << " (doit rester 'Chase the cat')" << std::endl;
-	std::cout << "Dog2 ideas[0]: " << dog2.getBrain()->_ideas[0] << " (doit etre 'Play fetch')" << std::endl;
-	std::cout << "Dog1 ideas[1]: " << dog1.getBrain()->_ideas[1] << " (doit rester 'Bark at mailman')" << std::endl;
-	std::cout << "Dog2 ideas[1]: " << dog2.getBrain()->_ideas[1] << " (doit etre 'Sleep on couch')" << std::endl;
+	std::cout << "\nVerification de la copie profonde :" << std::endl;
+	std::cout << "Dog1 idea 0 : " << dog1.getBrain()->_ideas[0] << " (Mange)" << std::endl;
+	std::cout << "Dog2 idea 0 : " << dog2.getBrain()->_ideas[0] << " (Joue)" << std::endl;
+	std::cout << "Dog1 idea 1 : " << dog1.getBrain()->_ideas[1] << " (Aboie)" << std::endl;
+	std::cout << "Dog2 idea 1 : " << dog2.getBrain()->_ideas[1] << " (Attaque)" << std::endl;
 	
-	std::cout << std::endl << "Verification des adresses Brain (doivent etre differentes):" << std::endl;
-	std::cout << "Dog1 brain address: " << dog1.getBrain() << std::endl;
-	std::cout << "Dog2 brain address: " << dog2.getBrain() << std::endl;
+	std::cout << "\nVerification des adresses Brain (differentes) :" << std::endl;
+	std::cout << "Dog1 brain address : " << dog1.getBrain() << std::endl;
+	std::cout << "Dog2 brain address : " << dog2.getBrain() << std::endl;
 	
 	std::cout << std::endl << "--- Test operateur d'affectation ---" << std::endl;
 	std::cout << "Creation d'un troisieme chien:" << std::endl;
