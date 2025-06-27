@@ -1,13 +1,14 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 int main()
 {
-	std::cout << "Creation et destruction :" << std::endl;
+	std::cout << "\nCreation et destruction (animal->brain->dog/cat) :" << std::endl;
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
-	std::cout << std::endl << "Ordre de destruction (brain->dog/cat->animal) :" << std::endl;
+	std::cout << "\nOrdre de destruction (brain->dog/cat->animal) :" << std::endl;
 	delete dog;
 	delete cat;
 
@@ -65,13 +66,13 @@ int main()
 	
 	std::cout << "\nAffectation dog3 = dog1:" << std::endl;
 	dog3 = dog1;
-	std::cout << "Dog3 apres affectation : " << dog3.getBrain()->_ideas[0] << std::endl;
-	std::cout << "Dog1 (source) : " << dog1.getBrain()->_ideas[0] << std::endl;
+	std::cout << "Dog3 idea 0 (apres affectation) : " << dog3.getBrain()->_ideas[0] << std::endl;
+	std::cout << "Dog1 idea 0 (source) : " << dog1.getBrain()->_ideas[0] << std::endl;
 	
 	std::cout << "\nModification de dog3 pour tester l'independance :" << std::endl;
 	dog3.getBrain()->_ideas[0] = "Court";
-	std::cout << "Dog3 modifie : " << dog3.getBrain()->_ideas[0] << std::endl;
-	std::cout << "Dog1 (doit rester inchange) : " << dog1.getBrain()->_ideas[0] << std::endl;
+	std::cout << "Dog3 idea 0 (modifie) : " << dog3.getBrain()->_ideas[0] << std::endl;
+	std::cout << "Dog1 idea 0 (doit rester inchange) : " << dog1.getBrain()->_ideas[0] << std::endl;
 
 	std::cout << "\nDestruction :" << std::endl;
 
