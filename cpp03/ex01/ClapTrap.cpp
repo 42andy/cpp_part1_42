@@ -6,7 +6,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
-	: _name(other._name), _hitPoints(other._hitPoints), 
+	: _name(other._name), _hitPoints(other._hitPoints),
 	  _energyPoints(other._energyPoints), _attackDamage(other._attackDamage)
 {
 	std::cout << "ClapTrap " << this->_name << " is copied!" << std::endl;

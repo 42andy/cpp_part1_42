@@ -24,7 +24,7 @@ int main()
 	std::cout << "\nCréation d'un FragTrap (héritage de ClapTrap):" << std::endl;
 	FragTrap frag1("Frag1");
 
-	std::cout << "\nFrag1 utilise les capacités de ClapTrap (pas de redéfinition):" << std::endl;
+	std::cout << "\nFrag1 utilise les capacités de ClapTrap (pas de redéfinition) :" << std::endl;
 	frag1.attack("Enemy");
 	frag1.takeDamage(30);
 	frag1.beRepaired(15);
@@ -33,11 +33,11 @@ int main()
 	frag1.highFivesGuys();
 
 	std::cout << "\nComparaison des trois types :" << std::endl;
-	std::cout << "\nClapTrap Robot1 (Attack Damage: 0):" << std::endl;
+	std::cout << "\nClapTrap Robot1 (Attack Damage : 0) :" << std::endl;
 	robot1.attack("TestTarget");
-	std::cout << "\nScavTrap Scav1 (Attack Damage: 20):" << std::endl;
+	std::cout << "\nScavTrap Scav1 (Attack Damage : 20) :" << std::endl;
 	scav1.attack("TestTarget");
-	std::cout << "\nFragTrap Frag1 (Attack Damage: 30):" << std::endl;
+	std::cout << "\nFragTrap Frag1 (Attack Damage : 30) :" << std::endl;
 	frag1.attack("TestTarget");
 
 	std::cout << "\nOrdre de construction/destruction :" << std::endl;
