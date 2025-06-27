@@ -11,31 +11,32 @@ int main()
 	delete j;
 	delete i;
 
-	std::cout << std::endl << "--- Test tableau mixte d'animaux ---" << std::endl;
-	Animal* zoo[4];
-	std::cout << "Creation d'un zoo de 4 animaux (2 chiens, 2 chats):" << std::endl;
-	for (int idx = 0; idx < 4; ++idx) {
-		std::cout << "Animal " << idx << ": ";
-		if (idx < 2) {
-			zoo[idx] = new Dog();
-		} else {
-			zoo[idx] = new Cat();
-		}
+	std::cout << "\nTableau mixte d'animaux :" << std::endl;
+	Animal* gang[4];
+	std::cout << "Creation d'un gang de 4 animaux (2 chiens, 2 chats):" << std::endl;
+	for (int idx = 0; idx < 4; ++idx)
+	{
+		std::cout << "Animal " << idx << " : " << std::endl;
+		if (idx < 2)
+			gang[idx] = new Dog();
+		else
+			gang[idx] = new Cat();
 	}
 	
-	std::cout << std::endl << "Destruction du zoo:" << std::endl;
-	for (int idx = 0; idx < 4; ++idx) {
-		std::cout << "Deleting animal " << idx << ": ";
-		delete zoo[idx];
+	std::cout << "\nDestruction du gang :" << std::endl;
+	for (int idx = 0; idx < 4; ++idx)
+	{
+		std::cout << "Deleting animal " << idx << " : " << std::endl;
+		delete gang[idx];
 	}
 
-	std::cout << std::endl << "--- Test copie profonde (Deep Copy) ---" << std::endl;
-	std::cout << "Creation du premier chien:" << std::endl;
+	std::cout << "\nCopie profonde :" << std::endl;
+	std::cout << "Creation du premier chien :" << std::endl;
 	Dog dog1;
 	dog1.getBrain()->_ideas[0] = "Chase the cat";
 	dog1.getBrain()->_ideas[1] = "Bark at mailman";
-	std::cout << "Dog1 ideas[0]: " << dog1.getBrain()->_ideas[0] << std::endl;
-	std::cout << "Dog1 ideas[1]: " << dog1.getBrain()->_ideas[1] << std::endl;
+	std::cout << "Dog1 idea 0: " << dog1.getBrain()->_ideas[0] << std::endl;
+	std::cout << "Dog1 idea 1: " << dog1.getBrain()->_ideas[1] << std::endl;
 	
 	std::cout << std::endl << "Creation du deuxieme chien par copie:" << std::endl;
 	Dog dog2 = dog1; // Constructeur de copie

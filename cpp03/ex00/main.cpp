@@ -20,19 +20,19 @@ int main()
 	robot1.beRepaired(5);
 
 	std::cout << "\nRobot2 va epuiser ses points d'énergie (10 max) :" << std::endl;
-	robot2.attack("Target1");
-	robot2.attack("Target2");
-	robot2.attack("Target3");
-	robot2.attack("Target4");
-	robot2.attack("Target5");
-	robot2.attack("Target6");
-	robot2.attack("Target7");
-	robot2.attack("Target8");
-	robot2.attack("Target9");
-	robot2.attack("Target10");
+	robot2.attack("Enemy1");
+	robot2.attack("Enemy2");
+	robot2.attack("Enemy3");
+	robot2.attack("Enemy4");
+	robot2.attack("Enemy5");
+	robot2.attack("Enemy6");
+	robot2.attack("Enemy7");
+	robot2.attack("Enemy8");
+	robot2.attack("Enemy9");
+	robot2.attack("Enemy10");
 
 	std::cout << "\nTentative d'attaque sans énergie :" << std::endl;
-	robot2.attack("Target11");  // Plus d'énergie
+	robot2.attack("Enemy11");
 
 	std::cout << "\nDestruction :" << std::endl;
 
