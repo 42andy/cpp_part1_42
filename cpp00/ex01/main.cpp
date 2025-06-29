@@ -10,7 +10,7 @@ static bool isValidInput(const std::string& input)
 	if (input.empty())
 		return false;
 	
-	for (size_t i = 0; i < input.length(); i++)
+	for (size_t i = 0; i < input.length(); ++i)
 	{
 		if (input[i] != ' ' && input[i] != '\t')
 			return true;
@@ -23,7 +23,7 @@ static std::string cleanInput(const std::string& str)
 	std::string result;
 	bool inSpace = true;
 	
-	for (size_t i = 0; i < str.length(); i++)
+	for (size_t i = 0; i < str.length(); ++i)
 	{
 		if (str[i] == ' ' || str[i] == '\t')
 		{
@@ -55,7 +55,7 @@ static Contact createContact()
 		"Darkest Secret"
 	};
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 5; ++i)
 	{
 		while(true)
 		{

@@ -29,7 +29,7 @@ bool PhoneBook::displayContacts() const
 	else
 		maxToDisplay = MAX_CONTACTS;
 
-	for (int i = 0; i < maxToDisplay; i++) 
+	for (int i = 0; i < maxToDisplay; ++i) 
 	{
 		std::cout << std::setw(10) << i << "|";
 

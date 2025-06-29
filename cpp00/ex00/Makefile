@@ -1,20 +1,26 @@
 NAME = megaphone
 CXX = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+
+SRCDIR = .
+OBJDIR = obj
 
 SRCS = megaphone.cpp
-OBJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) 
-	$(CXX) $(FLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
-	$(CXX) $(FLAGS) -c $< -o $@
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-clean: 
-	rm -f $(OBJS)
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+
+clean:
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
