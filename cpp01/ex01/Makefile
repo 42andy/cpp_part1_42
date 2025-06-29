@@ -1,29 +1,25 @@
 NAME = horde
 CXX = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCDIR = src
-INCDIR = inc
+SRCDIR = .
 OBJDIR = obj
 
-SRCS =	$(SRCDIR)/Zombie.cpp \
-		$(SRCDIR)/zombieHorde.cpp \
-		$(SRCDIR)/main.cpp \
-
-OBJS = $(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+SRCS = Zombie.cpp zombieHorde.cpp main.cpp
+OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) 
-	$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
-	$(CXX) $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJDIR):
-	mkdir -p $(OBJDIR)
+	@mkdir -p $(OBJDIR)
 
-clean: 
+clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean

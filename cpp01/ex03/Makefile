@@ -1,11 +1,11 @@
-NAME = brain
+NAME = violence
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCDIR = .
 OBJDIR = obj
 
-SRCS = main.cpp
+SRCS = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
