@@ -5,6 +5,43 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
+static bool isValidInput(const std::string& input)
+{
+	if (input.empty())
+		return false;
+	
+	for (size_t i = 0; i < input.length(); i++)
+	{
+		if (input[i] != ' ' && input[i] != '\t')
+			return true;
+	}
+	return false;
+}
+
+static std::string cleanInput(const std::string& str)
+{
+	std::string result;
+	bool inSpace = true;
+	
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (str[i] == ' ' || str[i] == '\t')
+		{
+			if (!inSpace && !result.empty())
+			{
+				result += ' ';
+				inSpace = true;
+			}
+		}
+		else
+		{
+			result += str[i];
+			inSpace = false;
+		}
+	}
+	return result;
+}
+
 static Contact createContact()
 {
 	Contact newContact;
@@ -31,11 +68,13 @@ static Contact createContact()
 				std::exit(0);
 			}
 
-			if (input.empty())
+			if (!isValidInput(input))
 			{
-				std::cout << "Field cannot be empty. Please try again." << std::endl;
+				std::cout << "Field cannot be empty or contain only spaces/tabs." << std::endl;
 				continue;
 			}
+
+			input = cleanInput(input);
 
 			if (i == 0)
 				newContact.setFirstName(input);
@@ -87,7 +126,7 @@ int main()
 
 			while (true)
 			{
-				std::cout << "Enter the index of the contact to display  : ";
+				std::cout << "Enter the index of the contact to display : ";
 				int	index;
 				std::cin >> index;
 
