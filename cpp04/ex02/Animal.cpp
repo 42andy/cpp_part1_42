@@ -1,11 +1,11 @@
 #include "Animal.hpp"
 
-Animal::Animal(): _type("Animal")
+Animal::Animal() : _type("Animal")
 {
 	std::cout << "Animal constructed" << std::endl;
 }
 
-Animal::Animal(const Animal& other): _type(other._type)
+Animal::Animal(const Animal& other) : _type(other._type)
 {
 	std::cout << "Animal copy constructed" << std::endl;
 }

@@ -1,12 +1,12 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : WrongAnimal()
 {
 	_type = "WrongCat";
 	std::cout << "WrongCat constructed" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& other): WrongAnimal(other)
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 {
 	std::cout << "WrongCat copy constructed" << std::endl;
 }

@@ -1,12 +1,12 @@
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
 	_type = "Dog";
 	std::cout << "Dog constructed" << std::endl;
 }
 
-Dog::Dog(const Dog& other): Animal(other)
+Dog::Dog(const Dog& other) : Animal(other)
 {
 	std::cout << "Dog copy constructed" << std::endl;
 }

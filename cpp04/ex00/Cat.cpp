@@ -1,12 +1,12 @@
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
 	_type = "Cat";
 	std::cout << "Cat constructed" << std::endl;
 }
 
-Cat::Cat(const Cat& other): Animal(other)
+Cat::Cat(const Cat& other) : Animal(other)
 {
 	std::cout << "Cat copy constructed" << std::endl;
 }

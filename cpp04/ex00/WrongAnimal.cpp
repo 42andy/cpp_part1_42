@@ -1,11 +1,11 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(): _type("WrongAnimal")
+WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
 	std::cout << "WrongAnimal constructed" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal& other): _type(other._type)
+WrongAnimal::WrongAnimal(const WrongAnimal& other) : _type(other._type)
 {
 	std::cout << "WrongAnimal copy constructed" << std::endl;
 }
