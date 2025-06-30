@@ -5,7 +5,7 @@
 int main()
 {
 	// Test de classe abstraite : decommenter pour verifier qu'Animal ne peut pas etre instanciee
-	// Animal animal; 
+	// Animal animal;
 	// error: cannot declare variable ‘animal’ to be of abstract type ‘Animal’
 
 	std::cout << "\nCreation (animal->brain->dog/cat) :" << std::endl;
