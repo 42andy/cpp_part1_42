@@ -15,6 +15,8 @@ int main(void)
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << "Raw value of c :" << std::endl;
 	std::cout << c.getRawBits() << std::endl;
+	
 	std::cout << "\nDestructors called :" << std::endl;
+	
 	return 0;
 }

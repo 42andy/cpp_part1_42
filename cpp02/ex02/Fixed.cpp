@@ -52,37 +52,55 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt(void) const
 {
-	return this->_value >> _bits;
+	return this->_value / (1 << _bits);
 }
 
 bool Fixed::operator>(const Fixed& other) const
 {
-	return this->_value > other._value;
+	if (this->_value > other._value)
+		return true;
+	else
+		return false;
 }
 
 bool Fixed::operator<(const Fixed& other) const
 {
-	return this->_value < other._value;
+	if (this->_value < other._value)
+		return true;
+	else
+		return false;
 }
 
 bool Fixed::operator>=(const Fixed& other) const
 {
-	return this->_value >= other._value;
+	if (this->_value >= other._value)
+		return true;
+	else
+		return false;
 }
 
 bool Fixed::operator<=(const Fixed& other) const
 {
-	return this->_value <= other._value;
+	if (this->_value <= other._value)
+		return true;
+	else
+		return false;
 }
 
 bool Fixed::operator==(const Fixed& other) const
 {
-	return this->_value == other._value;
+	if (this->_value == other._value)
+		return true;
+	else
+		return false;
 }
 
 bool Fixed::operator!=(const Fixed& other) const
 {
-	return this->_value != other._value;
+	if (this->_value != other._value)
+		return true;
+	else
+		return false;
 }
 
 Fixed Fixed::operator+(const Fixed& other) const

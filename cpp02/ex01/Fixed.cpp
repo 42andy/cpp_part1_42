@@ -51,7 +51,7 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt(void) const
 {
-	return this->_value >> _bits;
+	return this->_value / (1 << _bits);
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
