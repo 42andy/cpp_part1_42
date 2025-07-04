@@ -31,7 +31,7 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (this->_hitPoints == 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " cannot attack because it has no hit points!" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " cannot attack because it is dead!" << std::endl;
 		return;
 	}
 	if (this->_energyPoints == 0)
@@ -41,6 +41,7 @@ void ScavTrap::attack(const std::string& target)
 	}
 	this->_energyPoints--;
 	std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+	std::cout << "It has now " << this->_energyPoints << " energy points left!" << std::endl;
 }
 
 void ScavTrap::guardGate()
