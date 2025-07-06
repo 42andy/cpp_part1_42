@@ -1,9 +1,8 @@
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
 
 static bool isValidInput(const std::string& input)
 {

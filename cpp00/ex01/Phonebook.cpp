@@ -1,7 +1,6 @@
+#include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
-
-#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() : contactCount(0) {}
 

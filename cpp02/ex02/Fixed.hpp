@@ -2,16 +2,15 @@
 #define FIXED_HPP
 
 #include <iostream>
-#include <cmath>
 
 class Fixed
 {
-	private:
+	private :
 
 		int _value;					// Valeur en format fixed-point
 		static const int _bits = 8;	// Nombre de bits pour la partie fractionnaire
 
-	public:
+	public :
 
 		Fixed();
 		Fixed(const int value);

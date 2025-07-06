@@ -1,7 +1,7 @@
 #ifndef HARL_HPP
-# define HARL_HPP
+#define HARL_HPP
 
-# include <string>
+#include <string>
 
 class Harl
 {

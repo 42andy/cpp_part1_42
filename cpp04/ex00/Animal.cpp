@@ -1,4 +1,5 @@
 #include "Animal.hpp"
+#include <iostream>
 
 Animal::Animal() : _type("Animal")
 {

@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include <climits>
+#include <cmath>
 
 Fixed::Fixed() : _value(0)
 {
