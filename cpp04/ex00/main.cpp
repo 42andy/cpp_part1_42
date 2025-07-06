@@ -33,7 +33,7 @@ int main()
 	const WrongAnimal* wani = new WrongAnimal();
 	const WrongAnimal* wcat = new WrongCat();
 	
-	std::cout << "\nType du WrongCat:" << std::endl;
+	std::cout << "\nType du WrongCat :" << std::endl;
 	std::cout << "WrongCat type : " << wcat->getType() << std::endl;
 	
 	std::cout << "\nSons (polymorphisme dysfonctionnel) :" << std::endl;
