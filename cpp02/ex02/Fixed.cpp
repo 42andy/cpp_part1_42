@@ -107,14 +107,28 @@ bool Fixed::operator!=(const Fixed& other) const
 Fixed Fixed::operator+(const Fixed& other) const
 {
 	Fixed result;
-	result.setRawBits(this->_value + other._value);
+	long long temp = static_cast<long long>(this->_value) + other._value;
+	
+	if (temp > INT_MAX || temp < INT_MIN)
+	{
+		std::cout << "Error: Result overflow after addition!" << std::endl;
+		return Fixed(0);
+	}
+	result.setRawBits(static_cast<int>(temp));
 	return result;
 }
 
 Fixed Fixed::operator-(const Fixed& other) const
 {
 	Fixed result;
-	result.setRawBits(this->_value - other._value);
+	long long temp = static_cast<long long>(this->_value) - other._value;
+	
+	if (temp > INT_MAX || temp < INT_MIN)
+	{
+		std::cout << "Error: Result overflow after subtraction!" << std::endl;
+		return Fixed(0);
+	}
+	result.setRawBits(static_cast<int>(temp));
 	return result;
 }
 
@@ -122,7 +136,7 @@ Fixed Fixed::operator*(const Fixed& other) const
 {
 	Fixed result;
 	long long temp = static_cast<long long> (this->_value) * other._value;
-	long long final_result = temp >> _bits;
+	long long final_result = static_cast<long long>(roundf(static_cast<float>(temp) / (1 << _bits)));
 
 	if (final_result > INT_MAX || final_result < INT_MIN)
 	{
@@ -141,8 +155,8 @@ Fixed Fixed::operator/(const Fixed& other) const
 		return Fixed(0);
 	}
 	Fixed result;
-	long long temp = static_cast<long long>(this->_value) * (1LL << _bits); // x256
-	long long final_result = temp / other._value;
+	long long temp = static_cast<long long> (this->_value) * (1LL << _bits); // x256
+	long long final_result = static_cast<long long>(roundf(static_cast<float>(temp) / other._value));
 
 	if (final_result > INT_MAX || final_result < INT_MIN)
 	{
