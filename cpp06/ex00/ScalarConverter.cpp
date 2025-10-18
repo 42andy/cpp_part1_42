@@ -105,7 +105,7 @@ static bool isDouble(const std::string& input)
 			return false;
 	}
 
-	if (dotCount != 1)
+	if (dotCount > 1)
 		return false;
 	if (!hasDigit)
 		return false;
@@ -199,7 +199,10 @@ void ScalarConverter::convert(const std::string& input)
 		ss >> longValue;
 
 		if (longValue < std::numeric_limits<int>::min() || longValue > std::numeric_limits<int>::max())
-			valid = false;
+		{
+			std::stringstream ss2(input);
+			ss2 >> value;
+		}
 		else
 			value = static_cast<double>(longValue);
 	}
