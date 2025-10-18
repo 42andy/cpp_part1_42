@@ -31,7 +31,6 @@ Array<T> &Array<T>::operator=(const Array &other)
 			delete[] _array;
 
 		_size = other._size;
-		
 		if (_size > 0)
 		{
 			_array = new T[_size];
@@ -55,7 +54,7 @@ template<typename T>
 T &Array<T>::operator[](unsigned int index)
 {
 	if (index >= _size)
-		throw std::exception();
+		throw OutOfBounds();
 	return _array[index];
 }
 
@@ -63,7 +62,7 @@ template<typename T>
 const T &Array<T>::operator[](unsigned int index) const
 {
 	if (index >= _size)
-		throw std::exception();
+		throw OutOfBounds();
 	return _array[index];
 }
 

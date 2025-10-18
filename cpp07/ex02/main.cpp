@@ -51,11 +51,10 @@ int main(void)
 
 	std::cout << "\nTest hors limites : " << std::endl;
 	try {
-		std::cout << "Test exception :" << std::endl;
 		std::cout << intArray[100] << std::endl;
 	} catch (std::exception &e) {
-		std::cout << "Exception !" << std::endl;
+		std::cout << "Exception attrapée : " << e.what() << std::endl;
 	}
-	
+
 	return 0;
 }

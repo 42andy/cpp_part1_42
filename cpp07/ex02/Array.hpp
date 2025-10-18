@@ -22,6 +22,13 @@ class Array
 		const T &operator[](unsigned int index) const;
 
 		unsigned int size() const;
+
+		class OutOfBounds : public std::exception {
+			public:
+				virtual const char* what() const throw() {
+					return "Index out of bounds.";
+				}
+		};
 };
 
 #include "Array.tpp"
