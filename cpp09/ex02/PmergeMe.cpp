@@ -128,11 +128,10 @@ void PmergeMe::run()
 
 	double durV = (double)(endV - startV) * 1000000.0 / CLOCKS_PER_SEC;
 	double durD = (double)(endD - startD) * 1000000.0 / CLOCKS_PER_SEC;
-	
-	// 6. Afficher les temps d'exécution
+
 	std::cout << "Time to process a range of " << _v.size() 
-	          << " elements with std::vector : " << durV << " us" << std::endl;
+			  << " elements with std::vector : " << durV << " us" << std::endl;
 	std::cout << "Time to process a range of " << _d.size() 
-	          << " elements with std::deque  : " << durD << " us" << std::endl;
+			  << " elements with std::deque  : " << durD << " us" << std::endl;
 }
 

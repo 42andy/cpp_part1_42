@@ -15,7 +15,6 @@ class MutantStack : public std::stack<T, Container>
 		typedef typename Container::iterator iterator;
 		typedef typename Container::const_iterator const_iterator;
 
-
 		iterator begin();
 		iterator end();
 

@@ -1,6 +1,5 @@
 #include "RPN.hpp"
 #include <sstream>
-#include <stdexcept>
 
 RPN::RPN() {}
 
@@ -30,7 +29,7 @@ int RPN::evaluate(const std::string &expr) const
 		if (tok == "+" || tok == "-" || tok == "*" || tok == "/")
 		{
 			if (st.size() < 2)
-				throw std::runtime_error("error");
+				throw InvalidExpressionException();
 
 			int b = st.top();
 			st.pop();
@@ -47,7 +46,7 @@ int RPN::evaluate(const std::string &expr) const
 			else if (tok == "/")
 			{
 				if (b == 0)
-					throw std::runtime_error("error");
+					throw InvalidExpressionException();
 				r = a / b;
 			}
 
@@ -56,14 +55,14 @@ int RPN::evaluate(const std::string &expr) const
 		else
 		{
 			if (tok.size() != 1 || tok[0] < '0' || tok[0] > '9')
-				throw std::runtime_error("error");
+				throw InvalidExpressionException();
 
 			st.push(tok[0] - '0');
 		}
 	}
 
 	if (st.size() != 1)
-		throw std::runtime_error("error");
+		throw InvalidExpressionException();
 
 	return st.top();
 }

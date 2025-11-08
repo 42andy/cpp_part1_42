@@ -3,6 +3,7 @@
 
 #include <stack>
 #include <string>
+#include <exception>
 
 class RPN
 {
@@ -13,6 +14,15 @@ class RPN
 		~RPN();
 
 		int evaluate(const std::string &expr) const;
+
+		class InvalidExpressionException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Error";
+				}
+		};
 
 	private:
 		bool isOperator(char c) const;

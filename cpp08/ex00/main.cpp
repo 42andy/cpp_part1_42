@@ -23,7 +23,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "not found" << std::endl;
+		std::cout << "Exception : " << e.what() << std::endl;
 	}
 
 	try
@@ -33,7 +33,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "not found" << std::endl;
+		std::cout << "Exception : " << e.what() << std::endl;
 	}
 
 	std::cout << "\nTests avec list :" << std::endl;
@@ -54,7 +54,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "not found" << std::endl;
+		std::cout << "Exception : " << e.what() << std::endl;
 	}
 
 	try
@@ -64,7 +64,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "not found" << std::endl;
+		std::cout << "Exception : " << e.what() << std::endl;
 	}
 
 	return 0;
