@@ -48,7 +48,10 @@ static bool validDate(const std::string &d)
 	else if (m == 2)
 	{
 		bool leap = (y % 4 == 0 && (y % 100 != 0 || y % 400 == 0));
-		mdays = leap ? 29 : 28;
+		if (leap)
+			mdays = 29;
+		else
+			mdays = 28;
 	}
 
 	if (day < 1 || day > mdays)

@@ -2,6 +2,7 @@
 #define SPAN_HPP
 
 #include <vector>
+#include <exception>
 
 class Span
 {
@@ -22,6 +23,33 @@ class Span
 
 		unsigned int shortestSpan() const;
 		unsigned int longestSpan() const;
+
+		class SpanFullException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Span is full";
+				}
+		};
+
+		class NoSpanException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Not enough elements to calculate span";
+				}
+		};
+
+		class NotEnoughCapacityException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Not enough capacity";
+				}
+		};
 };
 
 #include "Span.tpp"

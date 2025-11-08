@@ -1,6 +1,5 @@
 #include "Span.hpp"
 #include <algorithm>
-#include <stdexcept>
 #include <climits>
 
 
@@ -23,14 +22,14 @@ Span::~Span() {}
 void Span::addNumber(int value)
 {
 	if (_data.size() >= _capacity)
-		throw std::runtime_error("full");
+		throw SpanFullException();
 	_data.push_back(value);
 }
 
 unsigned int Span::shortestSpan() const
 {
 	if (_data.size() < 2)
-		throw std::runtime_error("no span");
+		throw NoSpanException();
 
 	std::vector<int> tmp(_data);
 
@@ -52,7 +51,7 @@ unsigned int Span::shortestSpan() const
 unsigned int Span::longestSpan() const
 {
 	if (_data.size() < 2)
-		throw std::runtime_error("no span");
+		throw NoSpanException();
 
 	std::vector<int>::const_iterator minIt = std::min_element(_data.begin(), _data.end());
 	std::vector<int>::const_iterator maxIt = std::max_element(_data.begin(), _data.end());

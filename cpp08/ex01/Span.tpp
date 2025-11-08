@@ -1,4 +1,3 @@
-#include <stdexcept>
 #include <iterator>
 
 /*
@@ -17,6 +16,6 @@ template<typename Iterator>
 void Span::addRange(Iterator first, Iterator last)
 {
 	if (std::distance(first, last) + _data.size() > _capacity)
-		throw std::runtime_error("not enough capacity");
+		throw NotEnoughCapacityException();
 	_data.insert(_data.end(), first, last);
 }
