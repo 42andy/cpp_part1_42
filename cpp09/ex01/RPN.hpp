@@ -7,6 +7,10 @@
 
 class RPN
 {
+	private:
+		bool isOperator(char c) const;
+		int performOperation(int a, int b, char op) const;
+
 	public:
 		RPN();
 		RPN(const RPN &other);
@@ -23,10 +27,6 @@ class RPN
 					return "Error";
 				}
 		};
-
-	private:
-		bool isOperator(char c) const;
-		int performOperation(int a, int b, char op) const;
 	};
 
 #endif

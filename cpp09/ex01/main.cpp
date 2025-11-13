@@ -19,6 +19,6 @@ int main(int ac, char **av)
 		std::cout << "Error" << std::endl;
 		return 1;
 	}
-	
+
 	return 0;
 }

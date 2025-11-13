@@ -8,6 +8,10 @@
 
 class PmergeMe
 {
+	private:
+		std::vector<int> _v;
+		std::deque<int> _d;
+
 	public:
 		PmergeMe();
 		PmergeMe(const PmergeMe &other);
@@ -16,10 +20,6 @@ class PmergeMe
 
 		bool parse(int ac, char **av);
 		void run();
-
-	private:
-		std::vector<int> _v;
-		std::deque<int> _d;
 };
 
 #endif

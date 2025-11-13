@@ -25,11 +25,9 @@ bool PmergeMe::parse(int ac, char **av)
 	{
 		std::string s(av[i]);
 
-		// Verifier que la chaine n'est pas vide
 		if (s.empty())
 			return false;
 
-		// Verifier que ce sont uniquement des chiffres (pas de signe -)
 		for (size_t j = 0; j < s.size(); j++)
 		{
 			if (!isdigit(s[j]))
@@ -40,11 +38,9 @@ bool PmergeMe::parse(int ac, char **av)
 		long n;
 		iss >> n;
 
-		// Verifier overflow et que c'est un entier positif
 		if (iss.fail() || n < 0 || n > 2147483647)
 			return false;
 
-		// Verifier les doublons
 		for (size_t j = 0; j < _v.size(); j++)
 		{
 			if (_v[j] == static_cast<int>(n))
@@ -58,17 +54,14 @@ bool PmergeMe::parse(int ac, char **av)
 	return true;
 }
 
-// Etape 3-5: Tri recursif Ford-Johnson pour vector
 static std::vector<int> fordJohnsonSortVec(std::vector<int> input)
 {
-	// Cas de base
 	if (input.size() <= 1)
 		return input;
 
 	std::vector<int> big;
 	std::vector<int> small;
-	
-	// Etape 1-2: Grouper en paires et comparer
+
 	for (size_t i = 0; i + 1 < input.size(); i += 2)
 	{
 		if (input[i] < input[i + 1])
@@ -83,23 +76,19 @@ static std::vector<int> fordJohnsonSortVec(std::vector<int> input)
 		}
 	}
 
-	// Gerer element impair
 	int odd = -1;
 	bool hasOdd = (input.size() % 2 != 0);
 	if (hasOdd)
 		odd = input[input.size() - 1];
 
-	// Etape 3: Trier recursivement les grands elements
 	std::vector<int> S = fordJohnsonSortVec(big);
 
-	// Etape 4-5: Inserer les petits avec binary search
 	for (size_t i = 0; i < small.size(); i++)
 	{
 		std::vector<int>::iterator it = std::lower_bound(S.begin(), S.end(), small[i]);
 		S.insert(it, small[i]);
 	}
 
-	// Inserer l'element impair
 	if (hasOdd)
 	{
 		std::vector<int>::iterator it = std::lower_bound(S.begin(), S.end(), odd);
@@ -109,17 +98,14 @@ static std::vector<int> fordJohnsonSortVec(std::vector<int> input)
 	return S;
 }
 
-// Etape 3-5: Tri recursif Ford-Johnson pour deque
 static std::deque<int> fordJohnsonSortDeq(std::deque<int> input)
 {
-	// Cas de base
 	if (input.size() <= 1)
 		return input;
 
 	std::deque<int> big;
 	std::deque<int> small;
-	
-	// Etape 1-2: Grouper en paires et comparer
+
 	for (size_t i = 0; i + 1 < input.size(); i += 2)
 	{
 		if (input[i] < input[i + 1])
@@ -134,23 +120,19 @@ static std::deque<int> fordJohnsonSortDeq(std::deque<int> input)
 		}
 	}
 
-	// Gerer element impair
 	int odd = -1;
 	bool hasOdd = (input.size() % 2 != 0);
 	if (hasOdd)
 		odd = input[input.size() - 1];
 
-	// Etape 3: Trier recursivement les grands elements
 	std::deque<int> S = fordJohnsonSortDeq(big);
 
-	// Etape 4-5: Inserer les petits avec binary search
 	for (size_t i = 0; i < small.size(); i++)
 	{
 		std::deque<int>::iterator it = std::lower_bound(S.begin(), S.end(), small[i]);
 		S.insert(it, small[i]);
 	}
 
-	// Inserer l'element impair
 	if (hasOdd)
 	{
 		std::deque<int>::iterator it = std::lower_bound(S.begin(), S.end(), odd);
