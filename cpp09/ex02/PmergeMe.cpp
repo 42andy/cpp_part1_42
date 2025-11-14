@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <climits>
 
 PmergeMe::PmergeMe() {}
 
@@ -38,7 +39,7 @@ bool PmergeMe::parse(int ac, char **av)
 		long n;
 		iss >> n;
 
-		if (iss.fail() || n < 0 || n > 2147483647)
+		if (iss.fail() || n < 0 || n > INT_MAX)
 			return false;
 
 		for (size_t j = 0; j < _v.size(); j++)
